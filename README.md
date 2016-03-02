@@ -25,6 +25,6 @@ Clear plugin cache, redeploy and restart
 ```bash
 cd kibana
 rm -rf ./optimize/*
-cp -R ~/tmp/kibana-html ./src/plugins/
+cp -R ~/tmp/raystorm-kibana-html ./src/plugins/
 bin/kibana
 ```
