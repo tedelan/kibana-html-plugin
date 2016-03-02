@@ -1,4 +1,4 @@
-# Kibana HTML Widget
+# Kibana HTML Widget Plugin
 HTML Widget Plugin for Kibana. This Plugin was originally adapted from the Markdown Plugin.
 
 ![preview-create](/resources/preview-create.png)
@@ -8,6 +8,7 @@ HTML Widget Plugin for Kibana. This Plugin was originally adapted from the Markd
 # Install
 
 ```bash
+git clone https://github.com/raystorm-place/raystorm-kibana-html.git
 cp -R ./raystorm-kibana-html kibana/src/plugins/
 ```
 
