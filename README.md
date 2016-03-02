@@ -1,6 +1,10 @@
 # Kibana HTML Widget
 HTML Widget Plugin for Kibana. This Plugin was originally adapted from the Markdown Plugin.
 
+![preview-create](/resources/preview-create.png)
+
+![preview-edit](/resources/preview-edit.png)
+
 # Install
 
 ```bash
