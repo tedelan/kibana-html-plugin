@@ -1,5 +1,5 @@
-# Kibana HTML Widget
-HTML Widget Plugin for Kibana. This Plugin was originally adapted from the Markdown Plugin.
+# Kibana HTML Plugin Widget
+HTML Plugin Widget for Kibana. This Plugin was originally adapted from the Markdown Plugin.
 
 ![preview-create](/resources/preview-create.png)
 
@@ -8,22 +8,12 @@ HTML Widget Plugin for Kibana. This Plugin was originally adapted from the Markd
 # Install
 
 ```bash
-cp -R ./raystorm-kibana-html kibana/src/plugins/
+cp -R ./kibana-html-plugin kibana/src/plugins/
 ```
 
 # Compatibility
 Plugins are officialy not supported, because of fast code changes even in minor Versions.
 
 The plugin is 100% compatible with following Versions (other not tested yet):
-* kibana (=4.4.1)
+* kibana (=4.4.x)
 
-
-# Dev
-Clear plugin cache, redeploy and restart
-
-```bash
-cd kibana
-rm -rf ./optimize/*
-cp -R ~/tmp/kibana-html ./src/plugins/
-bin/kibana
-```

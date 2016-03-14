@@ -5,7 +5,7 @@ module.exports = function (kibana) {
   return new kibana.Plugin({
 
     uiExports: {
-      visTypes: ['plugins/raystorm-kibana-html/raystormHtml']
+      visTypes: ['plugins/kibana-html-plugin/html']
     }
 
   });
