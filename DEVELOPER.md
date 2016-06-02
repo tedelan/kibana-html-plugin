@@ -14,7 +14,7 @@ bin/kibana
 # Release
 
 ```bash
-tar -czf v0.0.x.tar.gz --exclude .git --exclude .idea --exclude *.iml --exclude src-noconflict --exclude src --exclude src-min --exclude demo kibana-html-plugin
+tar -czf kibana-html-plugin-v0.0.x.tar.gz --exclude .git --exclude .idea --exclude *.iml --exclude src-noconflict --exclude src --exclude src-min --exclude demo kibana-html-plugin
 ```
 
 ## Debug scope
