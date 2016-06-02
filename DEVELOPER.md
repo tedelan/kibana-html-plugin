@@ -1,5 +1,5 @@
 # Dev
-Install depencies, clear plugin cache, redeploy and restart
+Install dependencies, clear plugin cache, redeploy and restart
 
 ```bash
 cd ~/tmp/kibana-html-plugin
