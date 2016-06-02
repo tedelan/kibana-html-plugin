@@ -8,7 +8,7 @@ HTML Plugin Widget for Kibana. This Plugin was originally adapted from the Markd
 # Install
 
 ```bash
-bin/kibana plugin -i kibana-html-plugin -u https://github.com/raystorm-place/kibana-html-plugin/archive/master.zip
+bin/kibana plugin -i kibana-html-plugin -u https://github.com/raystorm-place/kibana-html-plugin/archive/v0.0.3.tar.gz
 ```
 
 # Compatibility
