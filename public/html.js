@@ -1,8 +1,8 @@
 define(function (require) {
-  require('plugins/kibana-gravity/bower_components/ace-builds/src-min-noconflict/ace.js');
-  require('plugins/kibana-gravity/bower_components/ace-builds/src-min-noconflict/mode-html.js');
-  require('plugins/kibana-gravity/bower_components/ace-builds/src-min-noconflict/theme-monokai.js');
-  require('plugins/kibana-gravity/bower_components/angular-ui-ace/ui-ace.min.js');
+  require('plugins/kibana-html-plugin/bower_components/ace-builds/src-min-noconflict/ace.js');
+  require('plugins/kibana-html-plugin/bower_components/ace-builds/src-min-noconflict/mode-html.js');
+  require('plugins/kibana-html-plugin/bower_components/ace-builds/src-min-noconflict/theme-monokai.js');
+  require('plugins/kibana-html-plugin/bower_components/angular-ui-ace/ui-ace.min.js');
   require('plugins/kibana-html-plugin/html.less');
   require('plugins/kibana-html-plugin/htmlController');
   require('ui/registry/vis_types').register(HtmlVisProvider);
