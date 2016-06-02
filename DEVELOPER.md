@@ -1,7 +1,10 @@
 # Dev
-Clear plugin cache, redeploy and restart
+Install depencies, clear plugin cache, redeploy and restart
 
 ```bash
+cd ~/tmp/kibana-html-plugin
+bower install
+
 cd kibana
 rm -rf ./optimize/*
 cp -R ~/tmp/kibana-html-plugin ./src/plugins/
