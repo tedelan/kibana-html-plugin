@@ -16,4 +16,5 @@ Plugins are officialy not supported, because of fast code changes even in minor 
 
 The plugin is compatible with following Versions (other not tested yet):
 * kibana (=4.x)
+* kibana (=5.1.1)
 
