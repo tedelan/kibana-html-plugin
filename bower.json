@@ -28,11 +28,11 @@
   "install": {
     "path": "public/deps",
     "sources": {
-      "angular-ui-ace": "public/bower_components/angular-ui-ace/ui-ace.min.js",
+      "angular-ui-ace": "bower_components/angular-ui-ace/ui-ace.min.js",
       "ace-builds": [
-        "public/bower_components/ace-builds/src-min-noconflict/theme-monokai.js",
-        "public/bower_components/ace-builds/src-min-noconflict/mode-html.js",
-        "public/bower_components/ace-builds/src-min-noconflict/ace.js"
+        "bower_components/ace-builds/src-min-noconflict/theme-monokai.js",
+        "bower_components/ace-builds/src-min-noconflict/mode-html.js",
+        "bower_components/ace-builds/src-min-noconflict/ace.js"
       ]
     }
   }
