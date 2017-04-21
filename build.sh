@@ -9,7 +9,9 @@ rsync -av --progress . ./build/kibana/kibana-html-plugin \
     --exclude build.sh \
     --exclude deploy.sh \
     --exclude .git \
-    --exclude .idea
+    --exclude .gitignore \
+    --exclude .idea \
+    --exclude *.iml
 
 # Retrieve plugin version from the package.json file directly
 version=`cat package.json | python -c "import sys, json; print json.load(sys.stdin)['version']"`
