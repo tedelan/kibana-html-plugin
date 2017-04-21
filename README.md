@@ -14,6 +14,6 @@ bin/kibana-plugin install <PATH_OR_URL_TO_YOUR_ZIP_FILE>
 # Compatibility
 Plugins are officialy not supported, because of fast code changes even in minor Versions.
 
-The plugin is compatible with following Versions :
-* kibana (=5.2)
+The plugin is compatible with following Versions:
+* kibana (=5.1.1)
 
