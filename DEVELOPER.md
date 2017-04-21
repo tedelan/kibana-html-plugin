@@ -28,10 +28,10 @@ bin/kibana
 
 # Release
 
-To make a release package, just run the `release.sh` script :
+To make a release package, just run the `build.sh` script :
 
 ```bash
-./release.sh
+./build.sh
 ```
 
 ## Debug scope
