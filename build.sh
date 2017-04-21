@@ -7,6 +7,7 @@ mkdir -p ./build/kibana/kibana-html-plugin
 rsync -av --progress . ./build/kibana/kibana-html-plugin \
     --exclude build \
     --exclude build.sh \
+    --exclude bower_components \
     --exclude deploy.sh \
     --exclude .git \
     --exclude .gitignore \
