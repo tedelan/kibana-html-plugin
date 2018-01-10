@@ -1,33 +1,41 @@
+import 'plugins/kibana-html-plugin/html.less';
 
-import { VisTypesRegistryProvider } from 'ui/registry/vis_types';
-import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
+import mainTemplate from 'plugins/kibana-html-plugin/html.html';
+import optionsTemplate from 'plugins/kibana-html-plugin/htmlOptions.html';
 
-define(function (require) {
-  require('plugins/kibana-html-plugin/deps/ace-builds/ace.js');
-  require('plugins/kibana-html-plugin/deps/ace-builds/mode-html.js');
-  require('plugins/kibana-html-plugin/deps/ace-builds/theme-monokai.js');
-  require('plugins/kibana-html-plugin/deps/angular-ui-ace/ui-ace.min.js');
-  require('plugins/kibana-html-plugin/html.less');
-  require('plugins/kibana-html-plugin/htmlController');
-  
-  VisTypesRegistryProvider.register(HtmlVisProvider);
+import 'plugins/kibana-html-plugin/htmlController.js';
 
-  function HtmlVisProvider(Private) {
-    require('ui/template_vis_type/template_vis_type');
-    var TemplateVisType = Private(TemplateVisTypeProvider);
+import {CATEGORY} from 'ui/vis/vis_category';
+import {VisFactoryProvider} from 'ui/vis/vis_factory';
+import {VisTypesRegistryProvider} from 'ui/registry/vis_types';
+import {VisSchemasProvider} from 'ui/vis/editors/default/schemas';
 
-    return new TemplateVisType({
+function HtmlVisProvider(Private) {
+  const VisFactory = Private(VisFactoryProvider);
+  const Schemas = Private(VisSchemasProvider);
+
+  return VisFactory.createAngularVisualization({
       name: 'html',
       title: 'Html widget',
       icon: 'fa-code',
       description: 'Useful for displaying html in dashboards.',
-      template: require('plugins/kibana-html-plugin/html.html'),
-      params: {
-        editor: require('plugins/kibana-html-plugin/htmlOptions.html')
-      },
-      requiresSearch: false
-    });
-  }
+      category: CATEGORY.OTHER,
+    //visualization: VisController,
 
-  return HtmlVisProvider;
-});
+    visConfig: {
+      defaults: {},
+      template: mainTemplate
+    },
+    editorConfig: {
+      optionsTemplate: optionsTemplate,
+      schemas: new Schemas([{
+        group: 'metrics',
+        name: 'metric',
+        title: 'Metric',
+        min: 1,
+        aggFilter: ['!derivative', '!geo_centroid']
+      }]),
+    }
+  });
+}
+VisTypesRegistryProvider.register(HtmlVisProvider);
