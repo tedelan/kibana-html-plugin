@@ -3,7 +3,6 @@ import 'plugins/kibana-html-plugin/html.less';
 import mainTemplate from 'plugins/kibana-html-plugin/html.html';
 import optionsTemplate from 'plugins/kibana-html-plugin/htmlOptions.html';
 
-
 import 'plugins/kibana-html-plugin/htmlController.js';
 
 import {CATEGORY} from 'ui/vis/vis_category';
