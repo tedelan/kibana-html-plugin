@@ -1,3 +1,7 @@
+
+import { VisTypesRegistryProvider } from 'ui/registry/vis_types';
+import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
+
 define(function (require) {
   require('plugins/kibana-html-plugin/deps/ace-builds/ace.js');
   require('plugins/kibana-html-plugin/deps/ace-builds/mode-html.js');
@@ -5,10 +9,12 @@ define(function (require) {
   require('plugins/kibana-html-plugin/deps/angular-ui-ace/ui-ace.min.js');
   require('plugins/kibana-html-plugin/html.less');
   require('plugins/kibana-html-plugin/htmlController');
-  require('ui/registry/vis_types').register(HtmlVisProvider);
+  
+  VisTypesRegistryProvider.register(HtmlVisProvider);
 
   function HtmlVisProvider(Private) {
-    var TemplateVisType = Private(require('ui/template_vis_type/template_vis_type'));
+    require('ui/template_vis_type/template_vis_type');
+    var TemplateVisType = Private(TemplateVisTypeProvider);
 
     return new TemplateVisType({
       name: 'html',
