@@ -27,15 +27,15 @@ function HtmlVisProvider(Private) {
       template: mainTemplate
     },
     editorConfig: {
-      optionsTemplate: optionsTemplate,
-      schemas: new Schemas([{
-        group: 'metrics',
-        name: 'metric',
-        title: 'Metric',
-        min: 1,
-        aggFilter: ['!derivative', '!geo_centroid']
-      }]),
-    }
+      optionsTemplate: optionsTemplate
+    },
+    options: {
+      showTimePicker: false,
+    },
+    requestHandler: 'none',
+    responseHandler: 'none',
+    implementsRenderComplete: true
+
   });
 }
 VisTypesRegistryProvider.register(HtmlVisProvider);
