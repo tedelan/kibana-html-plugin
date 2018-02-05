@@ -2,3 +2,4 @@
 bower_components
 /build/
 deps
+npm-debug.log
