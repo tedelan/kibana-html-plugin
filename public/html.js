@@ -1,33 +1,41 @@
+import 'plugins/kibana-html-plugin/html.less';
+import mainTemplate from 'plugins/kibana-html-plugin/html.html';
+import optionsTemplate from 'plugins/kibana-html-plugin/htmlOptions.html';
+import 'plugins/kibana-html-plugin/htmlController.js';
 
-import { VisTypesRegistryProvider } from 'ui/registry/vis_types';
-import { TemplateVisTypeProvider } from 'ui/template_vis_type/template_vis_type';
+import 'plugins/kibana-html-plugin/deps/ace-builds/ace.js';
+import 'plugins/kibana-html-plugin/deps/ace-builds/mode-html.js';
+import 'plugins/kibana-html-plugin/deps/ace-builds/theme-monokai.js';
+import 'plugins/kibana-html-plugin/deps/angular-ui-ace/ui-ace.min.js';
 
-define(function (require) {
-  require('plugins/kibana-html-plugin/deps/ace-builds/ace.js');
-  require('plugins/kibana-html-plugin/deps/ace-builds/mode-html.js');
-  require('plugins/kibana-html-plugin/deps/ace-builds/theme-monokai.js');
-  require('plugins/kibana-html-plugin/deps/angular-ui-ace/ui-ace.min.js');
-  require('plugins/kibana-html-plugin/html.less');
-  require('plugins/kibana-html-plugin/htmlController');
-  
-  VisTypesRegistryProvider.register(HtmlVisProvider);
+import {CATEGORY} from 'ui/vis/vis_category';
+import {VisFactoryProvider} from 'ui/vis/vis_factory';
+import {VisTypesRegistryProvider} from 'ui/registry/vis_types';
+import {VisSchemasProvider} from 'ui/vis/editors/default/schemas';
 
-  function HtmlVisProvider(Private) {
-    require('ui/template_vis_type/template_vis_type');
-    var TemplateVisType = Private(TemplateVisTypeProvider);
+VisTypesRegistryProvider.register(HtmlVisProvider);
 
-    return new TemplateVisType({
-      name: 'html',
-      title: 'Html widget',
-      icon: 'fa-code',
-      description: 'Useful for displaying html in dashboards.',
-      template: require('plugins/kibana-html-plugin/html.html'),
-      params: {
-        editor: require('plugins/kibana-html-plugin/htmlOptions.html')
-      },
-      requiresSearch: false
-    });
-  }
+function HtmlVisProvider(Private) {
+  const VisFactory = Private(VisFactoryProvider);
 
-  return HtmlVisProvider;
-});
+  return VisFactory.createAngularVisualization({
+    name: 'html',
+    title: 'Html widget',
+    isAccessible: true,
+    icon: 'fa-code',
+    description: 'Useful for displaying html in dashboards.',
+    category: CATEGORY.OTHER,
+    visConfig: {
+      template: mainTemplate
+    },
+    editorConfig: {
+      optionsTemplate: optionsTemplate,
+      enableAutoApply: true
+    },
+    options: {
+      showTimePicker: false,
+    },
+    requestHandler: 'none',
+    responseHandler: 'none'
+  });
+}
