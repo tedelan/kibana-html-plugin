@@ -10,7 +10,7 @@ module.controller('KbnHtmlEditController', ['$scope', function($scope) {
 module.controller('KbnHtmlVisController', function ($scope, $sce) {
   $scope.$watch('renderComplete', function () {
     var html = $scope.vis.params.html;
-    if (html) {
+    if ($scope.updateStatus.params && html) {
       $scope.html = $sce.trustAsHtml(html);
     }
     $scope.renderComplete();
