@@ -30,7 +30,7 @@ function HtmlVisProvider(Private) {
   return VisFactory.createReactVisualization({
     name: 'html',
     title: 'Html widget',
-    icon: 'fa-code',
+    icon: 'editorCodeBlock',
     stage: 'experimental',
     description: 'Useful for displaying html in dashboards.',
     category: CATEGORY.OTHER,
