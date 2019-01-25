@@ -5,15 +5,52 @@ HTML Plugin Widget for Kibana. This Plugin was originally adapted from the Markd
 
 ![preview-edit](/resources/preview-edit.png)
 
-# Install
+## Install
 
 ```bash
 bin/kibana-plugin install <PATH_OR_URL_TO_YOUR_ZIP_FILE>
 ```
+Go to releases page for list of available packages
 
-# Compatibility
+## Compatibility
 Plugins are officialy not supported, because of fast code changes even in minor Versions.
 
 The plugin is compatible with following Versions:
-* kibana (=6.2.1)
+* kibana (=6.3+)
 
+The plugin is tagged as experimental for the moment :
+- Is necessary to add an option to prevent XSS injection by blocking scripts ?
+- How to manage the CSS style/classes of elements like h1, h2 and others with the core CSS classes that overwriting it ?
+
+
+## development
+
+See the [kibana contributing guide](https://github.com/elastic/kibana/blob/master/CONTRIBUTING.md) for instructions setting up your development environment. Once you have completed that, use the following yarn scripts.
+
+  - `yarn kbn bootstrap`
+
+    Install dependencies and crosslink Kibana and all projects/plugins.
+
+    > ***IMPORTANT:*** Use this script instead of `yarn` to install dependencies when switching branches, and re-run it whenever your dependencies change.
+
+  - `yarn start`
+
+    Start kibana and have it include this plugin. You can pass any arguments that you would normally send to `bin/kibana`
+
+      ```
+      yarn start --elasticsearch.url http://localhost:9220
+      ```
+
+  - `yarn build`
+
+    Build a distributable archive of your plugin.
+
+  - `yarn test:browser`
+
+    Run the browser tests in a real web browser.
+
+  - `yarn test:server`
+
+    Run the server tests using mocha.
+
+For more information about any of these commands run `yarn ${task} --help`. For a full list of tasks checkout the `package.json` file, or run `yarn run`.

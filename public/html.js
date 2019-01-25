@@ -1,43 +1,64 @@
-import 'plugins/kibana-html-plugin/html.less';
-import mainTemplate from 'plugins/kibana-html-plugin/html.html';
-import optionsTemplate from 'plugins/kibana-html-plugin/htmlOptions.html';
-import 'plugins/kibana-html-plugin/htmlController.js';
+// import 'plugins/kibana-html-plugin/html.less';
+//
+// import mainTemplate from 'plugins/kibana-html-plugin/html.html';
+// import optionsTemplate from 'plugins/kibana-html-plugin/htmlOptions.html';
+//
+// import 'plugins/kibana-html-plugin/htmlController.js';
+//
+// import optionsComponent from 'plugins/kibana-html-plugin/optionsComponent.js'
+//
 
-import 'plugins/kibana-html-plugin/deps/ace-builds/ace.js';
-import 'plugins/kibana-html-plugin/deps/ace-builds/mode-html.js';
-import 'plugins/kibana-html-plugin/deps/ace-builds/theme-monokai.js';
-import 'plugins/kibana-html-plugin/deps/angular-ui-ace/ui-ace.min.js';
+
+
+
+
+import 'plugins/kibana-html-plugin/html.less';
 
 import {CATEGORY} from 'ui/vis/vis_category';
 import {VisFactoryProvider} from 'ui/vis/vis_factory';
 import {VisTypesRegistryProvider} from 'ui/registry/vis_types';
-import {VisSchemasProvider} from 'ui/vis/editors/default/schemas';
+
 import { DefaultEditorSize } from 'ui/vis/editor_size';
 
-VisTypesRegistryProvider.register(HtmlVisProvider);
+import { HtmlVisWrapper } from './html_vis_controller';
+import htmlVisParamsTemplate from './html_vis_params.html';
+
 
 function HtmlVisProvider(Private) {
   const VisFactory = Private(VisFactoryProvider);
 
-  return VisFactory.createAngularVisualization({
+  return VisFactory.createReactVisualization({
     name: 'html',
     title: 'Html widget',
-    isAccessible: true,
-    icon: 'fa-code',
+    icon: 'editorCodeBlock',
+    stage: 'experimental',
     description: 'Useful for displaying html in dashboards.',
     category: CATEGORY.OTHER,
+
     visConfig: {
-      template: mainTemplate
+      component: HtmlVisWrapper,
+      defaults: {
+        fontSize: 12,
+        openLinksInNewTab: false
+      }
     },
     editorConfig: {
-      optionsTemplate: optionsTemplate,
+      optionsTemplate: htmlVisParamsTemplate,
       enableAutoApply: true,
-      defaultSize: DefaultEditorSize.LARGE
+      defaultSize: DefaultEditorSize.LARGE,
     },
     options: {
       showTimePicker: false,
     },
     requestHandler: 'none',
-    responseHandler: 'none'
+    responseHandler: 'none',
+    implementsRenderComplete: true
+
   });
 }
+
+// register the provider with the visTypes registry so that other know it exists
+VisTypesRegistryProvider.register(HtmlVisProvider);
+
+// export the provider so that the visType can be required with Private()
+export default HtmlVisProvider;
